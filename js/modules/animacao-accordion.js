@@ -18,4 +18,3 @@ export default function initAccordion() {
   }
 }
 
-console.log("É isso mesmo")
