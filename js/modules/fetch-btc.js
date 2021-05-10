@@ -1,9 +1,9 @@
-export default function initFetchBTC(){
+export default function fetchBitcoin(url, target){
  async function fetchBTC(){
    try{
-    const dadosBTC = await fetch("https://blockchain.info/ticker")
+    const dadosBTC = await fetch(url)
     const dadosBTCJSON = await dadosBTC.json()
-    const span = document.querySelector(".btc-preco")
+    const span = document.querySelector(target)
     span.innerText = (10000 / dadosBTCJSON.BRL.sell).toFixed(4)
   } catch(error){
     console.log(error)
