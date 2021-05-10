@@ -1,9 +1,11 @@
+import debounce from './debounce.js'
+
 export default class ScrollAnima {
   constructor(sections) {
-    this.sections = document.querySelectorAll(sections);
-    this.windowMetade = window.innerHeight * 0.6;
+    this.sections = document.querySelectorAll(sections)
+    this.windowMetade = window.innerHeight * 0.6
 
-    this.checkDistance = this.checkDistance.bind(this);
+    this.checkDistance = debounce(this.checkDistance.bind(this), 50)
   }
 
   // Gets the distance of each item concerning to the
@@ -23,25 +25,25 @@ export default class ScrollAnima {
   checkDistance() {
     this.distance.forEach((item) => {
       if (window.pageYOffset > item.offset) {
-        item.element.classList.add('ativo');
+        item.element.classList.add('ativo')
       } else if (item.element.classList.contains('ativo')) {
-        item.element.classList.remove('ativo');
+        item.element.classList.remove('ativo')
       }
-    });
+    })
   }
 
   init() {
     if (this.sections.length) {
-      this.getDistance();
-      this.checkDistance();
-      window.addEventListener('scroll', this.checkDistance);
+      this.getDistance()
+      this.checkDistance()
+      window.addEventListener('scroll', this.checkDistance)
     }
-    return this;
+    return this
   }
 
   // Remove the event to scroll
   stop() {
-    window.removeEventListener('scroll', this.checkDistance);
+    window.removeEventListener('scroll', this.checkDistance)
   }
 }
 
