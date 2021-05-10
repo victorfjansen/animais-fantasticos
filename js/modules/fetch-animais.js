@@ -16,7 +16,7 @@ export default function fetchAnimals(url, target){
       const divAnimal = createAnimals(animal)
       numeroGrid.appendChild(divAnimal)
   }
-
+  
   // Animate the numbers of each animal 
   function animaAnimaisNumeros(){
     const animaNumeros = new AnimaNumeros('[data-numero]', ".numeros", "ativo")
